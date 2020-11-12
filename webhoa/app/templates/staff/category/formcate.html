@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	{% extends "../base.html" %}
+    {% block navbar %}
+    {% with page=1 %}
+    {{block.super}}
+    {% endwith %}
+    {% endblock %}
+    {% block content %}
+    <div  class="container mt-3">
+    	<h3>Thêm sản phẩm mới</h3>
+    	<form method="POST"> {% csrf_token %}
+    		<table class="table">
+    			<tr>
+    				<td>Mã sản phẩm</td>
+    				<td><input class="form-control" name="code"></td>
+    			</tr>
+    			<tr>
+    				<td>Tên sản phẩm</td>
+    				<td><input class="form-control" name="name"></td>
+    			</tr>
+    		</table>
+    		<button class="btn btn-sm btn-primary" type="submit">Lưu lại</button>
+    		<a href="/list_category" class="btn btn-sm btn-secondary">Quay lại</a>
+    	</form>
+    </div>
+	{% endblock %}
+</body>
+</html>

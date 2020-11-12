@@ -1,0 +1,46 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% extends "../base.html" %}
+    {% block navbar %}
+    {% with page=1 %}
+    {{block.super}}
+    {% endwith %}
+    {% endblock %}
+    {% block content %}
+    <div class="container mt-3">
+    	<h3>Danh sách nhóm sản phẩm</h3>
+    	<table class="table table-bordered">
+    		<thead>
+    			<tr class="text-center">
+    				<th style="width: 5%">STT</th>
+    				<th style="width: 30%">Mã sản phẩm</th>
+    				<th style="width: 50%">Tên sản phẩm</th>
+    				<th style="width: 15%">#</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr>
+    				<td>{{ forloop.counter }}</td>
+    				<td>001</td>
+    				<td>Nhom 1</td>
+    				<td>
+    					<a href="#" class="btn btn-sm btn-secondary">Chỉnh sửa</a>
+    					<a href="#" class="btn btn-sm btn-danger">Xóa</a>
+    				</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    	<a href="/staff/add_category" class="btn btn-primary">Thêm sản phẩm mới</a>
+    </div>
+    
+    {% endblock %}
+</body>
+
+</html>

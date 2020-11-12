@@ -1,0 +1,52 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% extends "../base.html" %}
+    {% block navbar %}
+    {% with page=2 %}
+    {{block.super}}
+    {% endwith %}
+    {% endblock %}
+    {% block content %}
+    <div class="container mt-3">
+        <h3>Thêm sản phẩm mới</h3>
+        <form method="POST"> {% csrf_token %}
+            <table class="table">
+                <tr>
+                    <td>Mã sản phẩm</td>
+                    <td><input class="form-control" name="code"></td>
+                </tr>
+                <tr>
+                    <td>Tên sản phẩm</td>
+                    <td><input class="form-control" name="name"></td>
+                </tr>
+                <tr>
+                    <td>Nhóm sản phẩm</td>
+                    <td>
+                        <select class="form-control">
+                            <option value="">--Chọn nhóm--</option>
+                            <option value="1">Nhóm 1</option>
+                            <option value="2">Nhóm 2</option>
+                            <option value="3">Nhóm 3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Đơn giá</td>
+                    <td><input class="form-control" type="number" min="0" name="price"></td>
+                </tr>
+            </table>
+            <button class="btn btn-sm btn-primary" type="submit">Lưu lại</button>
+            <a href="/staff/list_product" class="btn btn-sm btn-secondary">Quay lại</a>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+
+</html>
